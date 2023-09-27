@@ -1,26 +1,26 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
-int main(){
-    int t; cin >> t;
-    while (t--)
-    {
-        int a,b; cin >>a>>b;
-        int c,d; cin >>c>>d;
-        int count=0;
-        if(a>b){
-            int temp = a;
-            a=b;
-            b=temp;
+void phanTichThuaSoNguyenTo(int n) {
+    for (int i = 2; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            int count = 0;
+            while (n % i == 0) {
+                count++;
+                n /= i;
+            }
+            cout << i << " " << count << endl;
         }
-        for (int i = a; i <= b; i++)
-        {
-            if(i%c==0) {count++;}
-            else if(i%d==0) {count++;}
-        }
-        cout << count <<endl;
-        
     }
-    
+    if (n != 1) {
+        cout << n << " " << 1 << endl;
+    }
+}
+
+int main() {
+    int n;
+    cin >> n;
+    phanTichThuaSoNguyenTo(n);
     return 0;
 }
