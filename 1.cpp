@@ -14,12 +14,17 @@ int main(){
     int t; cin >> t;
     while (t--)
     {
-        long long a;cin >> a;
+        long long a,b;cin >> a >> b;
+        if(a>b){
+            long long temp = a;
+            a=b;
+            b=temp;
+        }
         int so=0;
-        for (int i = 2 ; i <= sqrt(pow(10,12)); i++)
+        for (int i = a ; i <= sqrt(pow(10,14)); i++)
         {
             if( snt(i) ){
-                if( pow(i,2) <= a ){
+                if( pow(i,2) <= b ){
                     so++;
                 } else break;
             }
