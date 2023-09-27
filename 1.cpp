@@ -2,26 +2,25 @@
 
 using namespace std;
 
-// void rutgon(char a[20],int i,int y){
-//     for(int g=i;g<y;g++){
-//         a[g]=a[g+3];
-//     }
-// }
-
-int main(){
+int main() {
     int v;
-    cin >>v;
-    while(v--){
-    char a[22];
-    cin >> a;
-    int u=0; int o=strlen(a)-1;
-    for(int i=0;i<strlen(a)-1;i++){
-        if(a[i]-a[i+1]==1 || a[i]-a[i+1]==-1){
-            u++;
+    cin >> v;
+    while (v--) {
+        long long a;
+        cin >> a;
+        int u=2; int o=0;
+        while(a!=1){
+            if(a%u==0 ){
+                a=a/u;
+                o++;
+            } else {
+                if(o!=0 || a==1) {cout << u <<" "<< o<< " ";}
+                o=0;
+                u++;
+                }
+            if (a==1){if(o!=0) {cout << u <<" "<< o<< "\n";}}
         }
     }
-    if(u==o){
-        cout << "YES\n";
-    } else cout << "NO\n";
-    }
+
+    return 0;
 }
