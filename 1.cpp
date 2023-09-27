@@ -1,26 +1,34 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
-void phanTichThuaSoNguyenTo(int n) {
-    for (int i = 2; i <= sqrt(n); i++) {
-        if (n % i == 0) {
-            int count = 0;
-            while (n % i == 0) {
-                count++;
-                n /= i;
-            }
-            cout << i << " " << count << endl;
-        }
+bool snt(int a){
+    if (a<2) return false;
+    for (int i = 2; i <= sqrt(a); i++)
+    {
+        if(a%i==0) return false;
     }
-    if (n != 1) {
-        cout << n << " " << 1 << endl;
-    }
+    return true;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    phanTichThuaSoNguyenTo(n);
+int main(){
+    int t; cin >> t;
+    while (t--)
+    {
+        long long a;cin >> a;
+        int so=0;
+        for (int i = 2 ; i <= sqrt(pow(10,12)); i++)
+        {
+            if( snt(i) ){
+                if( pow(i,2) <= a ){
+                    so++;
+                } else break;
+            }
+        }
+        
+        //cout << endl;
+        cout << so;
+        cout << endl;
+    }
+    
     return 0;
 }
